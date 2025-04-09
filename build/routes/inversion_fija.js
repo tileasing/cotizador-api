@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.inversionFijaRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const inversion_fija_1 = require("../controllers/inversion_fija");
+const inversionFijaRouter = (0, express_1.Router)();
+exports.inversionFijaRouter = inversionFijaRouter;
+inversionFijaRouter.get("/", inversion_fija_1.getInvesionFija);
+inversionFijaRouter.post("/test", inversion_fija_1.testInversionFija);
+inversionFijaRouter.use(validarJWT_1.validarJWT);
+inversionFijaRouter.get("/show_all_inversion_fija", inversion_fija_1.showInversionFija);
+inversionFijaRouter.put("/", inversion_fija_1.updateInversionFija);
+inversionFijaRouter.post("/", inversion_fija_1.registerInversionFija);

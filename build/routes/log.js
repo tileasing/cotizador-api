@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.logRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const log_1 = require("../controllers/log");
+const logRouter = (0, express_1.Router)();
+exports.logRouter = logRouter;
+logRouter.use(validarJWT_1.validarJWT);
+logRouter.get("/get_all_logs", log_1.getLogsByAdmins);
+logRouter.post("/get_log_specific_admin", log_1.getLogsSpecificByAdmins);
+logRouter.post("/get_logs_specifics_type", log_1.getLogsSpecificsType);

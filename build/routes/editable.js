@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.editableRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const editable_1 = require("../controllers/editable");
+const editableRouter = (0, express_1.Router)();
+exports.editableRouter = editableRouter;
+editableRouter.use(validarJWT_1.validarJWT);
+editableRouter.get("/", editable_1.getEditable);
+editableRouter.post("/", editable_1.registerEditable);
+editableRouter.put("/", editable_1.updateEditable);
+editableRouter.post("/test_editable", editable_1.testEditable);

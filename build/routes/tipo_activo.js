@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.tipoActivoRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const tipo_activo_1 = require("../controllers/tipo_activo");
+const tipoActivoRouter = (0, express_1.Router)();
+exports.tipoActivoRouter = tipoActivoRouter;
+tipoActivoRouter.use(validarJWT_1.validarJWT);
+tipoActivoRouter.get("/", tipo_activo_1.getTipoActivo);
+tipoActivoRouter.post("/", tipo_activo_1.registerTipoActivo);
+tipoActivoRouter.put("/", tipo_activo_1.updateTipoActivo);
+tipoActivoRouter.get("/show_all_tipo_activo", tipo_activo_1.showTipoActivo);
+tipoActivoRouter.put("/delete_tipo_activo", tipo_activo_1.deleteTipoActivo);

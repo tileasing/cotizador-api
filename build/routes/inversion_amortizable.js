@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.inversionAmortizableRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const inversion_amortizable_1 = require("../controllers/inversion_amortizable");
+const inversionAmortizableRouter = (0, express_1.Router)();
+exports.inversionAmortizableRouter = inversionAmortizableRouter;
+inversionAmortizableRouter.get("/", inversion_amortizable_1.getInvesionAmortizable);
+inversionAmortizableRouter.post("/test", inversion_amortizable_1.testInversionAmortizable);
+inversionAmortizableRouter.use(validarJWT_1.validarJWT);
+inversionAmortizableRouter.get("/show_all_inversion_amortizable", inversion_amortizable_1.showInversionAmortizable);
+inversionAmortizableRouter.post("/", inversion_amortizable_1.registerInversionAmortizable);
+inversionAmortizableRouter.put("/", inversion_amortizable_1.updateInversionAmortizable);

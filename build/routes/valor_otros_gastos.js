@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.valorOtrosGastosRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const valor_otros_gastos_1 = require("../controllers/valor_otros_gastos");
+const valorOtrosGastosRouter = (0, express_1.Router)();
+exports.valorOtrosGastosRouter = valorOtrosGastosRouter;
+valorOtrosGastosRouter.use(validarJWT_1.validarJWT);
+valorOtrosGastosRouter.get("/", valor_otros_gastos_1.getValoresOtrosGastos);
+valorOtrosGastosRouter.post("/", valor_otros_gastos_1.registerValoresOtrosGastos);
+valorOtrosGastosRouter.put("/", valor_otros_gastos_1.updateOtrosGastos);
+valorOtrosGastosRouter.get("/show_all_otros_gastos", valor_otros_gastos_1.showValorOtrosGastos);
+valorOtrosGastosRouter.post("/test_valor_otros_gastos", valor_otros_gastos_1.testValoresOtrosGastos);

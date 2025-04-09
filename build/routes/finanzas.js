@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.finanzasRouter = void 0;
+const express_1 = require("express");
+const errorResponse_1 = require("../middlewares/errorResponse");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const finanzas_1 = require("../controllers/finanzas");
+const finanzasRouter = (0, express_1.Router)();
+exports.finanzasRouter = finanzasRouter;
+finanzasRouter.use(validarJWT_1.validarJWT);
+finanzasRouter.use(errorResponse_1.errorAdmin);
+finanzasRouter.get("/get_pagos", finanzas_1.getFinanzas);
+finanzasRouter.put("/update_pagos", finanzas_1.updateFinanzas);

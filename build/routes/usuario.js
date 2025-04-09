@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.usuarioRouter = void 0;
+const express_1 = require("express");
+const usuario_1 = require("../controllers/usuario");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const usuarioRouter = (0, express_1.Router)();
+exports.usuarioRouter = usuarioRouter;
+usuarioRouter.post("/login", usuario_1.loginUser);
+usuarioRouter.use(validarJWT_1.validarJWT);
+usuarioRouter.get("/get_data_session", usuario_1.getUserSession);

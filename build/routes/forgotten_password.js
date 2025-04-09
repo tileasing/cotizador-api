@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.forgottenPasswordRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const forgotten_password_1 = require("../controllers/forgotten_password");
+const forgottenPasswordRouter = (0, express_1.Router)();
+exports.forgottenPasswordRouter = forgottenPasswordRouter;
+forgottenPasswordRouter.post("/", forgotten_password_1.generateKey);
+forgottenPasswordRouter.post("/varify_unique_key", forgotten_password_1.verifyUniqueKey);
+forgottenPasswordRouter.post("/update_password", forgotten_password_1.updatePassword);
+forgottenPasswordRouter.use(validarJWT_1.validarJWT);

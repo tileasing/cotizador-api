@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.gestoriaRouter = void 0;
+const express_1 = require("express");
+const gestoria_1 = require("../controllers/gestoria");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const errorResponse_1 = require("../middlewares/errorResponse");
+const gestoriaRouter = (0, express_1.Router)();
+exports.gestoriaRouter = gestoriaRouter;
+gestoriaRouter.use(validarJWT_1.validarJWT);
+gestoriaRouter.use(errorResponse_1.errorAdmin);
+gestoriaRouter.get("/get_gestoria", gestoria_1.getGestoria);
+gestoriaRouter.put("/update_unidad", gestoria_1.updateGestoria);

@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.estadoActivoRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const estado_activo_1 = require("../controllers/estado_activo");
+const estadoActivoRouter = (0, express_1.Router)();
+exports.estadoActivoRouter = estadoActivoRouter;
+estadoActivoRouter.use(validarJWT_1.validarJWT);
+estadoActivoRouter.get("/", estado_activo_1.getEstadoActivo);
+estadoActivoRouter.post("/", estado_activo_1.registerEstadoActivo);
+estadoActivoRouter.put("/", estado_activo_1.updateEstadoActivo);
+estadoActivoRouter.get("/show_all_estado_activo", estado_activo_1.showEstadoActivo);
+estadoActivoRouter.put("/delete_estado_activo", estado_activo_1.deleteEstadoActivo);

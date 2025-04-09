@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.administradorCRouter = void 0;
+const express_1 = require("express");
+const errorResponse_1 = require("../middlewares/errorResponse");
+const administrador_contrato_1 = require("../controllers/administrador_contrato");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const administradorCRouter = (0, express_1.Router)();
+exports.administradorCRouter = administradorCRouter;
+administradorCRouter.use(validarJWT_1.validarJWT);
+administradorCRouter.use(errorResponse_1.errorAdmin);
+administradorCRouter.get("/get_clientes", administrador_contrato_1.getClientAdminContr);
+administradorCRouter.put("/update_estatus", administrador_contrato_1.updateClientAdminContr);

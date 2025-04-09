@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.documentsClientARouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const documentos_clientes_a_1 = require("../controllers/documentos_clientes_a");
+const documentsClientARouter = (0, express_1.Router)();
+exports.documentsClientARouter = documentsClientARouter;
+documentsClientARouter.use(validarJWT_1.validarJWT);
+documentsClientARouter.get("/", documentos_clientes_a_1.getDocuments);
+documentsClientARouter.post("/", documentos_clientes_a_1.addDocument);
+documentsClientARouter.put("/", documentos_clientes_a_1.updateDocument);
+documentsClientARouter.get("/get_docs", documentos_clientes_a_1.getUpdateFiles);
+documentsClientARouter.put("/update_state_doc", documentos_clientes_a_1.acceptOrDecline);
+documentsClientARouter.post("/acept_docs", documentos_clientes_a_1.aceptAllDocs);

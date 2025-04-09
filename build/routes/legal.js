@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.legalRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const errorResponse_1 = require("../middlewares/errorResponse");
+const legal_1 = require("../controllers/legal");
+const legalRouter = (0, express_1.Router)();
+exports.legalRouter = legalRouter;
+legalRouter.use(validarJWT_1.validarJWT);
+legalRouter.use(errorResponse_1.errorAdmin);
+legalRouter.get("/get_legal", legal_1.getLegal);
+legalRouter.put("/update_pagos", legal_1.updateLegal);
+legalRouter.post("/get_contrato", legal_1.getContrato);
+legalRouter.post("/update_archivo", legal_1.updateContrato);

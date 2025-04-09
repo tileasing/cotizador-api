@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.tipoArchivoRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const tipo_archivo_1 = require("../controllers/tipo_archivo");
+const tipoArchivoRouter = (0, express_1.Router)();
+exports.tipoArchivoRouter = tipoArchivoRouter;
+tipoArchivoRouter.use(validarJWT_1.validarJWT);
+tipoArchivoRouter.post("/", tipo_archivo_1.registerTipoArchivo);
+tipoArchivoRouter.post("/update_tipo_archivo", tipo_archivo_1.updateTipoArchivo);
+tipoArchivoRouter.post("/get_tipo_archivo", tipo_archivo_1.getTipoArchivo);
+tipoArchivoRouter.get("/get_all_tipo_archivo", tipo_archivo_1.getAllTipoArchivo);
+tipoArchivoRouter.put("/update_is_required", tipo_archivo_1.updateIsRequired);

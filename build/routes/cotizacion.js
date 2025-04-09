@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.cotizacionRouter = void 0;
+const express_1 = require("express");
+const cotizacion_1 = require("../controllers/cotizacion");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const cotizacionRouter = (0, express_1.Router)();
+exports.cotizacionRouter = cotizacionRouter;
+cotizacionRouter.use(validarJWT_1.validarJWT);
+cotizacionRouter.post("/", cotizacion_1.getCotizacion);

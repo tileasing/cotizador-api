@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.calculadoraRouter = void 0;
+const express_1 = require("express");
+const validarJWT_1 = require("../middlewares/validarJWT");
+const calculadora_1 = require("../controllers/calculadora");
+const calculadoraRouter = (0, express_1.Router)();
+exports.calculadoraRouter = calculadoraRouter;
+calculadoraRouter.use(validarJWT_1.validarJWT);
+calculadoraRouter.post("/", calculadora_1.doCalculate);
+calculadoraRouter.post("/me_interesa", calculadora_1.meInteresaInversion);
